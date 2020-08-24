@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/discount_on_purchase_gt.iml" filepath="$PROJECT_DIR$/.idea/discount_on_purchase_gt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../OdooApps/payroll_dynamic_xls_report/.idea/payroll_dynamic_xls_report.iml" filepath="$PROJECT_DIR$/../../../OdooApps/payroll_dynamic_xls_report/.idea/payroll_dynamic_xls_report.iml" />
     </modules>
   </component>
 </project>

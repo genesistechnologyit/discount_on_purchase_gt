@@ -26,6 +26,7 @@
         'report/report.xml',
 
     ],
+    'images': ['static/description/images.jpeg'],
     'price': 35,
     'currency': 'USD',
     'support': 'genesistechnologyit@gmail.com',
