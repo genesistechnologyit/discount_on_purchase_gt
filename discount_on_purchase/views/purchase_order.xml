@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+
+       <record id="purchase_view_form_discount_inherit" model="ir.ui.view">
+            <field name="name">purchase.view.form.discount.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[1]/group" position="after">
+                    <div class="container">
+                        <field name="enable_discount" invisible="1"/>
+                        <label for="discount_type" string="Discount Type:" attrs="{'invisible':[('enable_discount','!=',True)]}"/>
+                        <field name="discount_type" class="oe_inline" attrs="{'invisible':[('enable_discount','!=',True)],'readonly':['|',('enable_discount','!=',True),('state', 'in', ['purchase', 'done'])]}"/>
+                    </div>
+                    <div class="container">
+                        <label for="discount_rate" string="Discount:" attrs="{'invisible':[('enable_discount','!=',True)]}"/>
+                        <field name="discount_rate" class="oe_inline" attrs="{'invisible':[('enable_discount','!=',True)],'readonly':['|',('enable_discount','!=',True),('state', 'in', ['purchase', 'done'])]}"/>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='amount_tax']" position="after">
+                    <field name="discount_amount" attrs="{'invisible':[('enable_discount','!=',True),('discount_amount','=',0)]}" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

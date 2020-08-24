@@ -1,0 +1,44 @@
+<odoo>
+
+    <template id="discount_invoice_report" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='total']/div/table/t" position="after">
+            <t t-if="o.discount_amount > 0">
+
+                <tr>
+                    <td>
+                        <span> Discount </span>
+                        <t t-if="o.discount_type == 'percent'">
+                            (<span t-field="o.discount_rate"/>%)
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.discount_amount"
+                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+
+
+    <template id="discount_purchase_report" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[@class='row justify-content-end']/div/table[@class='table table-sm']/tr[2]" position="after">
+            <t t-if="o.discount_amount > 0">
+
+                <tr>
+                    <td>
+                        <span>Discount Amount </span>
+                        <t t-if="o.discount_type == 'percent'">
+                            (<span t-field="o.discount_rate"/>%)
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.discount_amount"
+                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
